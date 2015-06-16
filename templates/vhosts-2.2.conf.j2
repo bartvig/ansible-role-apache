@@ -8,12 +8,22 @@ DirectoryIndex index.php index.html
 {% if vhost.serveralias is defined %}
   ServerAlias {{ vhost.serveralias }}
 {% endif %}
+{% if vhost.documentroot is defined %}
   DocumentRoot {{ vhost.documentroot }}
+{% endif %}
+{% elif vhost.virtualdocumentroot is defined %}
+  VirtualDocumentRoot {{ vhost.virtualdocumentroot }}
+{% endif %}
 
 {% if vhost.serveradmin is defined %}
   ServerAdmin {{ vhost.serveradmin }}
 {% endif %}
+{% if vhost.documentroot is defined %}
   <Directory "{{ vhost.documentroot }}">
+{% endif %}
+{% elif vhost.virtualdocumentroot is defined %}
+  <Directory "{{ vhost.directory }}">
+{% endif %}
     AllowOverride All
     Options -Indexes FollowSymLinks
     Order allow,deny
@@ -33,7 +43,12 @@ DirectoryIndex index.php index.html
 {% if vhost.serveralias is defined %}
   ServerAlias {{ vhost.serveralias }}
 {% endif %}
+{% if vhost.documentroot is defined %}
   DocumentRoot {{ vhost.documentroot }}
+{% endif %}
+{% elif vhost.virtualdocumentroot is defined %}
+  VirtualDocumentRoot {{ vhost.virtualdocumentroot }}
+{% endif %}
 
   SSLEngine on
   SSLCipherSuite {{ apache_ssl_cipher_suite }}
@@ -48,7 +63,12 @@ DirectoryIndex index.php index.html
 {% if vhost.serveradmin is defined %}
   ServerAdmin {{ vhost.serveradmin }}
 {% endif %}
+{% if vhost.documentroot is defined %}
   <Directory "{{ vhost.documentroot }}">
+{% endif %}
+{% elif vhost.virtualdocumentroot is defined %}
+  <Directory "{{ vhost.directory }}">
+{% endif %}
     AllowOverride All
     Options -Indexes FollowSymLinks
     Order allow,deny
