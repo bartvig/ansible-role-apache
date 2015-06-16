@@ -10,8 +10,7 @@ DirectoryIndex index.php index.html
 {% endif %}
 {% if vhost.documentroot is defined %}
   DocumentRoot {{ vhost.documentroot }}
-{% endif %}
-{% else if vhost.virtualdocumentroot is defined %}
+{% elif vhost.virtualdocumentroot is defined %}
   VirtualDocumentRoot {{ vhost.virtualdocumentroot }}
 {% endif %}
 
@@ -20,8 +19,7 @@ DirectoryIndex index.php index.html
 {% endif %}
 {% if vhost.documentroot is defined %}
   <Directory "{{ vhost.documentroot }}">
-{% endif %}
-{% else if vhost.virtualdocumentroot is defined %}
+{% elif vhost.virtualdocumentroot is defined %}
   <Directory "{{ vhost.directory }}">
 {% endif %}
     AllowOverride All
@@ -45,8 +43,7 @@ DirectoryIndex index.php index.html
 {% endif %}
 {% if vhost.documentroot is defined %}
   DocumentRoot {{ vhost.documentroot }}
-{% endif %}
-{% else if vhost.virtualdocumentroot is defined %}
+{% elif vhost.virtualdocumentroot is defined %}
   VirtualDocumentRoot {{ vhost.virtualdocumentroot }}
 {% endif %}
 
@@ -65,8 +62,7 @@ DirectoryIndex index.php index.html
 {% endif %}
 {% if vhost.documentroot is defined %}
   <Directory "{{ vhost.documentroot }}">
-{% endif %}
-{% else if vhost.virtualdocumentroot is defined %}
+{% elif vhost.virtualdocumentroot is defined %}
   <Directory "{{ vhost.directory }}">
 {% endif %}
     AllowOverride All
